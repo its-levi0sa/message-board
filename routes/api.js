@@ -102,7 +102,7 @@ module.exports = function (app) {
 
       try {
         await Thread.findByIdAndUpdate(idToReport, { reported: true });
-        res.send("success"); // per spec, return plain string "success"
+        res.send("reported"); // per spec, return plain string "reported"
       } catch (err) {
         res.send("error");
       }
@@ -198,7 +198,7 @@ module.exports = function (app) {
 
         reply.reported = true;
         await thread.save();
-        res.send("success");
+        res.send("reported");
       } catch (err) {
         res.send("error");
       }

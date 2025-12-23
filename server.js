@@ -10,6 +10,14 @@ const runner            = require('./test-runner');
 
 const app = express();
 
+app.use(function (req, res, next) {
+  res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self'");
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  res.setHeader('X-DNS-Prefetch-Control', 'off');
+  res.setHeader('Referrer-Policy', 'same-origin');
+  next();
+});
+
 const mongoose = require('mongoose');
 
 mongoose.connect(process.env.DB)
