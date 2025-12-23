@@ -106,7 +106,7 @@ suite('Functional Tests', function() {
       .send({ thread_id: threadId, reply_id: replyId })
       .end(function(err, res) {
         assert.equal(res.status, 200);
-        assert.equal(res.text, 'success');
+        assert.equal(res.text, 'reported');
         done();
       });
   });
@@ -118,7 +118,7 @@ suite('Functional Tests', function() {
       .send({ thread_id: threadId })
       .end(function(err, res) {
         assert.equal(res.status, 200);
-        assert.equal(res.text, 'success');
+        assert.equal(res.text, 'reported');
         done();
       });
   });
