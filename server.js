@@ -10,6 +10,12 @@ const runner            = require('./test-runner');
 
 const app = express();
 
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.DB)
+  .then(() => console.log('Database connected successfully!'))
+  .catch(err => console.log('Database error:', err));
+
 app.use('/public', express.static(process.cwd() + '/public'));
 
 app.use(cors({origin: '*'})); //For FCC testing purposes only
